@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DistanceIA : MonoBehaviour
 
@@ -25,5 +26,17 @@ public class DistanceIA : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * speed);
         }
 
+
+
     }
+
+    private void OnCollisionter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
+    }
+
+
 }
